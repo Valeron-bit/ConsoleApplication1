@@ -1,65 +1,65 @@
-﻿#include <iostream>  
-#include <math.h>    
-#include <algorithm> 
+#include <iostream>
+#include <math.h>
+#include <algorithm>
 
 using namespace std;
 
 int main() {
-    int a, b, c;  // Объявление переменных для сторон треугольника
-    double p, S;  // Переменные для полупериметра и площади
+    int a, b, c;  // Declaration of variables for the sides of the triangle
+    double p, S;  // Variables for the semi-perimeter and area
 
-    cout << "Введите сторону a: ";
+    cout << "Enter side a: ";
     cin >> a;
-    cout << "Введите сторону b: ";
+    cout << "Enter side b: ";
     cin >> b;
-    cout << "Введите сторону c: ";
+    cout << "Enter side c: ";
     cin >> c;
 
     if (a <= 0 || b <= 0 || c <= 0) {
-        cout << "Стороны треугольника должны быть положительными числами" << endl;
+        cout << "The sides of the triangle must be positive numbers" << endl;
         return 1;
     }
 
-    // Проверка на существование треугольника:
+    // Check if the triangle exists:
     if (a + b > c && b + c > a && c + a > b) {
 
-        // Максимальная и минимальная сторона треугольника:
-        int ma = std::max({ a, b, c });  // Максимальная сторона
-        int mi = std::min({ a, b, c });  // Минимальная сторона
-        int cr = a + b + c - ma - mi;    // Средняя сторона
+        // Maximum and minimum side of the triangle:
+        int ma = std::max({ a, b, c });  // Maximum side
+        int mi = std::min({ a, b, c });  // Minimum side
+        int cr = a + b + c - ma - mi;    // Middle side
 
-        // Тип углов треугольника, теорема Пифагора:
+        // Type of triangle by angles, Pythagorean theorem:
         if (mi * mi + cr * cr < ma * ma) {
-            std::cout << "По типу углов - тупоугольный" << endl;
+            std::cout << "By angle type - obtuse" << endl;
         }
         else if (mi * mi + cr * cr == ma * ma) {
-            std::cout << "По типу углов - прямоугольный" << endl;
+            std::cout << "By angle type - right-angled" << endl;
         }
         else {
-            std::cout << "По типу углов - остроугольный" << endl;
+            std::cout << "By angle type - acute" << endl;
         }
 
-        // Тип треугольника по сторонам:
+        // Type of triangle by sides:
         if (a == b && b == c) {
-            cout << "По типу сторон - равносторонний" << endl;
+            cout << "By side type - equilateral" << endl;
         }
         else if (a == b || b == c || c == a) {
-            cout << "По типу сторон - равнобедренный" << endl;
+            cout << "By side type - isosceles" << endl;
         }
         else {
-            cout << "По типу сторон - разносторонний" << endl;
+            cout << "By side type - scalene" << endl;
         }
 
-        // Площадь треугольника:
-        p = (a + b + c) / 2.0;  // Полупериметр
-        S = sqrt(p * (p - a) * (p - b) * (p - c));  // Формула Герона
-        cout << "Площадь треугольника: " << S << endl;
+        // Area of the triangle:
+        p = (a + b + c) / 2.0;  // Semi-perimeter
+        S = sqrt(p * (p - a) * (p - b) * (p - c));  // Heron's formula
+        cout << "Area of the triangle: " << S << endl;
 
-        // Вписаная окружность
+        // Inscribed circle
 
     }
     else {
-        cout << "Треугольник не существует" << endl;
+        cout << "The triangle does not exist" << endl;
     }
 
     return 0;
