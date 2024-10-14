@@ -24,19 +24,19 @@ int main() {
     if (a + b > c && b + c > a && c + a > b) {
 
         // Maximum and minimum side of the triangle:
-        int ma = std::max({ a, b, c });  // Maximum side
-        int mi = std::min({ a, b, c });  // Minimum side
+        int ma = max({ a, b, c });  // Maximum side
+        int mi = min({ a, b, c });  // Minimum side
         int cr = a + b + c - ma - mi;    // Middle side
 
         // Type of triangle by angles, Pythagorean theorem:
         if (mi * mi + cr * cr < ma * ma) {
-            std::cout << "By angle type - obtuse" << endl;
+            cout << "By angle type - obtuse" << endl;
         }
         else if (mi * mi + cr * cr == ma * ma) {
-            std::cout << "By angle type - right-angled" << endl;
+            cout << "By angle type - right-angled" << endl;
         }
         else {
-            std::cout << "By angle type - acute" << endl;
+            cout << "By angle type - acute" << endl;
         }
 
         // Type of triangle by sides:
@@ -55,7 +55,7 @@ int main() {
         S = sqrt(p * (p - a) * (p - b) * (p - c));  // Heron's formula
         cout << "Area of the triangle: " << S << endl;
 
-        // Inscribed circle
+        // Inscribed circle - later 
 
     }
     else {
